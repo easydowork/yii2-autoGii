@@ -50,11 +50,16 @@ class AutoGiiController extends Controller
     /**
      * 生成所有 model
      * actionModel
+     * @param string $tableName
      * @throws \yii\base\NotSupportedException
      */
-    public function actionModel()
+    public function actionModel($tableName='')
     {
-        $tables = Yii::$app->db->getSchema()->tableNames;
+        $tables = explode(',',$tableName);
+
+        if(!count($tables)){
+            $tables = Yii::$app->db->getSchema()->tableNames;
+        }
 
         foreach ( $tables as $table ) {
 
@@ -116,11 +121,16 @@ class AutoGiiController extends Controller
     /**
      * 生成所有 crud
      * actionCrud
+     * @param string $tableName
      * @throws \yii\base\NotSupportedException
      */
-    public function actionCrud()
+    public function actionCrud($tableName='')
     {
-        $tables = Yii::$app->db->getSchema()->tableNames;
+        $tables = explode(',',$tableName);
+
+        if(!count($tables)){
+            $tables = Yii::$app->db->getSchema()->tableNames;
+        }
 
         foreach ( $tables as $table ) {
 
