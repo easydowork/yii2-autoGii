@@ -77,6 +77,7 @@ class AutoGiiController extends Controller
                 ];
 
                 $generator->baseClass  = '\common\models\BaseActiveRecord'; //父类文件
+                $generator->generateLabelsFromComments  = true; //添加字段注释
                 $generator->template   = 'Absolute';                        //模板
                 $generator->queryNs    = 'common\models';                   //命名空间
                 $generator->ns         = 'common\models';                   //命名空间
